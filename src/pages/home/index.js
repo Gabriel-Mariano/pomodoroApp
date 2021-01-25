@@ -1,9 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
+import Icon from 'react-native-vector-icons/Feather';
+import IconEntypo from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
 import  { MyContext }  from '../../config/contexts';
 
+Icon.loadFont();
+IconEntypo.loadFont();
 
 export default function Home(){
     const { data,setData } = useContext(MyContext);
@@ -59,7 +63,7 @@ export default function Home(){
     return(
         <View style={styles.container}>
             <View style={styles.containerTemp}>
-                <Text style={styles.title}>Pomodoro</Text>
+                <Text style={styles.title}>POMODORO</Text>
                     <ProgressCircle
                         percent={per}
                         radius={90}
@@ -77,10 +81,18 @@ export default function Home(){
             </View>
             <View style={styles.containerButtons}>
                 <TouchableOpacity style={styles.toucheblePause} onPress={Reset}>
-                    <Text style={styles.touchebleTextReset} >Reset</Text>
+                    <Text style={styles.touchebleTextReset} >
+                        <IconEntypo name="back-in-time" size={28}/>
+                    </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchebleStart} onPress={Start}>
-                    <Text style={styles.touchebleText}>{isActive ? "Stop" : "Start"}</Text>
+                    <Text style={styles.touchebleText}>
+                        {isActive ? 
+                        <Icon name="pause-circle" size={28}/>
+                            : 
+                        <Icon name="play-circle" size={28}/>
+                        }
+                    </Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -102,8 +114,9 @@ const styles = StyleSheet.create({
         marginBottom:20
     },
     title:{
-        color:'#0EEC87',
+        color:'#f8f8f8',
         fontSize:24,
+        fontWeight:'bold',
         textAlign:'center',
         marginBottom:44
     },

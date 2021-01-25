@@ -1,9 +1,13 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ProgressCircle from 'react-native-progress-circle';
+import Icon from 'react-native-vector-icons/Feather';
+import IconEntypo from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
 import  { MyContext }  from '../../config/contexts';
 
+Icon.loadFont();
+IconEntypo.loadFont();
 
 export default function Home(){
     const { data,setData } = useContext(MyContext);
@@ -58,12 +62,12 @@ export default function Home(){
     return(
         <View style={styles.container}>
             <View style={styles.containerTemp}>
-                <Text style={styles.title}>Pomodoro</Text>
+                <Text style={styles.title}>POMODORO</Text>
                     <ProgressCircle
                         percent={per}
                         radius={90}
                         borderWidth={4}
-                        color="#FF8C00"
+                        color="#0EEC87"
                         shadowColor="#f8f8f8"
                         bgColor="#2F374A"
                         marginRight={2}
@@ -76,10 +80,18 @@ export default function Home(){
             </View>
             <View style={styles.containerButtons}>
                 <TouchableOpacity style={styles.toucheblePause} onPress={Reset}>
-                    <Text style={styles.touchebleTextReset} >Reset</Text>
+                    <Text style={styles.touchebleTextReset} >
+                        <IconEntypo name="back-in-time" size={28}/>
+                    </Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.touchebleStart} onPress={Start}>
-                    <Text style={styles.touchebleText}>{isActive ? "Stop" : "Start"}</Text>
+                    <Text style={styles.touchebleText}>
+                        {isActive ? 
+                            <Icon name="pause-circle" size={28}/>
+                            : 
+                            <Icon name="play-circle" size={28}/>
+                        }
+                    </Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -101,8 +113,9 @@ const styles = StyleSheet.create({
         justifyContent:'center',
     },
     title:{
-        color:'#0EEC87',
+        color:'#f8f8f8',
         fontSize:24,
+        fontWeight:'bold',
         textAlign:'center',
         marginBottom:44
     },
@@ -112,7 +125,7 @@ const styles = StyleSheet.create({
 
         width:150,
         height:60,
-        backgroundColor:'#FF8C00',
+        backgroundColor:'#0EEC87',
         borderRadius:15,
         marginTop:20
     },
@@ -133,7 +146,7 @@ const styles = StyleSheet.create({
     },
     touchebleTextReset:{
         fontWeight:'bold',
-        color:'#FF8C00'
+        color:'#0EEC87'
     }
 
 

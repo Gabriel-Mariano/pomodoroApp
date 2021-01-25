@@ -20,13 +20,14 @@ function About(){
             />
             <View style={styles.containerText}>
                 <Text style={styles.span}>
-                    Oi <Text style={styles.strong}>{data.name}</Text>, seja bem-vindo!{"\n\n"}
-                    A Técnica <Text style={styles.strong}>Pomodoro</Text> é um método de gerenciamento de tempo desenvolvido por Francesco Cirillo no final dos anos 1980. {"\n\n"}A técnica consiste na utilização de um cronômetro para dividir o trabalho em períodos de 25 minutos, separados por breves intervalos.
+                    Olá <Text style={styles.strong}>{data.name}</Text>, seja bem-vindo(a)!{"\n\n"}
+                    A Técnica <Text style={styles.strong}>Pomodoro</Text> é um método de gerenciamento de tempo desenvolvido por Francesco Cirillo no final dos anos 1980. {"\n\n"}A técnica consiste na utilização de um cronômetro para dividir o trabalho em períodos de 25 minutos, separados por breves intervalos.{"\n\n"}
+                    <Text style={styles.strong}>Continue</Text> para visualizar o funcionamento da técnica.
                 </Text>  
             </View>
             <TouchableOpacity style={styles.toucheble} onPress={handleContinue}>
-                    <Text style={styles.touchebleText} >CONTINUE</Text>
-                </TouchableOpacity>
+                <Text style={styles.touchebleText} >CONTINUE</Text>
+            </TouchableOpacity>
         </View>
     );
 }

@@ -2,7 +2,9 @@ import React, { useContext, useState } from 'react';
 import { View, Text, Image, StyleSheet, TextInput, TouchableOpacity  } from 'react-native';
 import { MyContext } from '../../config/contexts';
 import { useNavigation } from '@react-navigation/native';
-import Logo from '../../assets/logo.png';
+import Logo from '../../assets/identidadeVisual.png';
+
+
 
 export default function Login(){
     const { data,setData } = useContext(MyContext);
@@ -47,8 +49,8 @@ const styles = StyleSheet.create({
         
     },
     image:{
-        width:100,
-        height:105,
+        width:200,
+        height:197,
         marginBottom:30
     },
     input:{
